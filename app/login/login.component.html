@@ -1,0 +1,46 @@
+
+
+    
+<h3>login  here</h3>
+ <div class="container">
+  <div  [hidden]="submitted">
+   
+    <form *ngIf="active" (ngSubmit)="onSubmit()" #heroForm="ngForm">
+
+
+      
+  <div class="form-group">
+        <label for="user_name">UserName</label>
+        <input type="text" class="form-control" id="user_name"
+               required
+               [(ngModel)]="model.user_name" name="user_name"
+               #user_name="ngModel" >
+               <div [hidden]="user_name.valid || user_name.pristine" 
+             class="alert alert-danger">
+          UserName is required
+        </div>
+     
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" class="form-control" id="password"
+               required
+               [(ngModel)]="model.password" name="password"
+               #password="ngModel" >
+               <div [hidden]="password.valid || password.pristine" 
+             class="alert alert-danger">
+          Password is required
+        </div>
+     
+      </div>
+
+     
+      <button type="button" class="btn btn-default" (click)="login()" [disabled]="!heroForm.form.valid">Login</button>
+
+
+</form>
+  </div>
+ </div>
+  
+
