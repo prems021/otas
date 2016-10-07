@@ -8,92 +8,95 @@ Make a vazhipad
 
 
    <div class="container">
-  <div  [hidden]="submitted">
+        <div  [hidden]="submitted">
    
-    <form *ngIf="active" (ngSubmit)="onSubmit()" #heroForm="ngForm">
+            <form *ngIf="active" (ngSubmit)="onSubmit()" #heroForm="ngForm">
+                <div class="form-group" >
+                   <label for="quantity">Quantity</label>
+                   <input type="number" class="qty-control"  id="quantity" required [(ngModel)]="model.quantity" name="quantity" #name="ngModel" >
+               </div>
 
 
+ <div class="row">
 
-      <div class="form-group">
-        <label for="quantity">Quantity</label>
-        <input type="number" class="form-control" id="quantity"
-               required
-               [(ngModel)]="model.quantity" name="quantity"
-               #name="ngModel" >
-        
-      </div>
+                  <div class="form-group" >
 
-
-
-
-         <div class="form-group">
-          <label for="pooja_name">PoojaName</label>
-             <select class="form-control" id="pooja_name"
-                required
-                [(ngModel)]="model.pooja_name" name="pooja_name" 
-                #pooja_name="ngModel" >
-          <option *ngFor="let hero of vazhipads" [value]="hero.NAME">{{hero.NAME}}</option>
-        </select>
-        </div>
+                             <label for="pooja_name">PoojaName</label>
+                             <select class="poojaname-control" id="pooja_name"
+                                             required
+                                             [(ngModel)]="model.pooja_name" name="pooja_name" 
+                                             #pooja_name="ngModel" >
+                             <option *ngFor="let hero of vazhipads" [value]="hero.NAME">{{hero.NAME}}</option>
+                              </select>
+                   
 
          
-      <div class="form-group">
-        <label for="devotee_name">Devoteename</label>
-        <input type="text" class="form-control" id="devotee_name" required
-               [(ngModel)]="model.devotee_name" name="devotee_name" >
-      </div>
+                            
+                                <label for="devotee_name">Devoteename</label>
+                                <input type="text" class="poojaname-control" id="devotee_name" required
+                                      [(ngModel)]="model.devotee_name" name="devotee_name" >
+                              
 
 
-      <div class="form-group">
-        <label for="devotee_star">Devotee Star</label>
-        <select class="form-control" id="devotee_star"
-                required
-                [(ngModel)]="model.devotee_star" name="devotee_star" 
-                #devotee_star="ngModel" >
-          <option *ngFor="let star of stars" [value]="star">{{star}}</option>
-        </select>
+                        
+                          <label for="devotee_star">Devotee Star</label>
+                          <select class="poojaname-control" id="devotee_star"
+                                  required
+                                  [(ngModel)]="model.devotee_star" name="devotee_star" 
+                                  #devotee_star="ngModel" >
+                            <option *ngFor="let star of stars" [value]="star">{{star}}</option>
+                          </select>
+                          
+      
+ 
+
+
+                      
+                          <label for="rate">Rate</label>
+                          <input type="number" class="qty-control" id="rate"
+                                required
+                                [(ngModel)]="model.rate" name="rate"
+                                #name="ngModel" >
         
-      </div>
+      
 
 
-     <div class="form-group">
-        <label for="rate">Rate</label>
-        <input type="number" class="form-control" id="rate"
-               required
-               [(ngModel)]="model.rate" name="rate"
-               #name="ngModel" >
+                    
+                      <label for="amount">Amount</label>
+                      <input type="amount" class="qty-control" id="amount"
+                            required
+                            [(ngModel)]="model.rate*model.quantity" name="amount"
+                            #name="ngModel" >
+                    
+
+
+
+                    
+                      <label for="party">Party</label>
+                      <input type="number" class="qty-control" id="party"
+                            required
+                            [(ngModel)]="model.party" name="party"
+                            #name="ngModel" >
         
-      </div>
-
-
-      <div class="form-group">
-        <label for="amount">Amount</label>
-        <input type="amount" class="form-control" id="amount"
-               required
-               [(ngModel)]="model.rate*model.quantity" name="amount"
-               #name="ngModel" >
-      </div>
-
-
-
-      <div class="form-group">
-        <label for="party">Party</label>
-        <input type="number" class="form-control" id="party"
-               required
-               [(ngModel)]="model.party" name="party"
-               #name="ngModel" >
-        
-      </div>
-
-
+      
+          
+         
+                                                <span>
+                                                    <button type="button" class="btn btn-xs" (click)="addform()" data-type="plus" >
+                                                        <span class="glyphicon glyphicon-plus"></span>
+                                                    </button>
+                                                </span>
+                  </div>
+ </div>
 
       <button type="submit" class="btn btn-default" [disabled]="!heroForm.form.valid">Submit</button>
-      <button type="button" class="btn btn-default" (click)="newHero()">New Hero</button>
-    </form>
-  </div>
+         </form>
+</div>
 
 
   <div [hidden]="!submitted">
+
+    
     <h2>You submitted the following:</h2>
     <div class="row">
       <div class="col-xs-3">qty</div>
@@ -130,4 +133,6 @@ Make a vazhipad
   </div>
 </div>
  
+  
+       
   
