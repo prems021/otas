@@ -5,3 +5,49 @@
 .ng-invalid:not(form)  {
   border-left: 5px solid #a94442; /* red */
 }
+
+        .qty-control
+        {
+          
+          width: 80%;
+          text-align: center;
+        }
+        .poojaname-control
+        {
+          width: 80%;
+        }
+ .qty-con
+ {
+   text-align: center;
+   width: 80%;
+ }
+ select
+ {
+  height: 25px;
+  min-block-size: 50px;
+
+ }
+ .qty-cony
+ {
+   text-align: center;
+   width: 60%;
+ }
+pre
+{
+  text-decoration-style: solid;
+   width: 60%;
+   height: 45px;
+   padding-left: 60px;
+   margin-left: 100px;
+}
+.submit-btn
+{
+  float: right;
+  margin-right: 60px;
+
+}
+.btnplus 
+{
+    margin-top: 25 px;
+    padding-top: 20 px;
+}
