@@ -5,7 +5,8 @@ import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { TransactionComponent } from './dashboard/transaction/transaction.component';
 import { AuthGuard } from './authguard';
-
+import { AccountheadComponent } from './dashboard/transaction/accounthead.component';
+import { BookingComponent } from './dashboard/transaction/booking.component';
 
 const appRoutes: Routes = [
   {
@@ -29,6 +30,14 @@ const appRoutes: Routes = [
    {
     path: 'transaction',
     component: TransactionComponent
+  },
+  {
+    path: 'accounthead',
+    component: AccountheadComponent
+  },
+  {
+  path: 'booking',
+  component: BookingComponent
   }
 ];
 
