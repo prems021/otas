@@ -1,8 +1,233 @@
-<h2>
 
-Make a vazhipad
 
-</h2>
+
+
+
+
+<div class="container-fluid">
+
+                             <h1>Add Vazhipad</h1>
+  
+  
+        <form [formGroup]="myForm" novalidate (ngSubmit)="save(myForm.value, myForm.valid)" #vazhipadForm="ngForm">
+          
+          
+             <div class="row"> 
+                                 <div class="col-md-1">
+                                  <div class="form-group" >
+                                              <label for="">Quantity</label>
+                                              <input type="number" class="form-control" class="qty-control" formControlName="quantity">
+                                  </div>
+                                </div>
+               
+                                <div class="col-md-2">
+                                
+                                  <div class="form-group" > 
+                                              <label>PoojaName</label>     <select class="poojaname-control" id="pooja_name" formControlName="pooja_name">
+                                            
+                                              <option *ngFor="let hero of vazhipads" [value]="hero.NAME">{{hero.NAME}}</option>
+                                              </select>
+                                   </div>  
+                                </div>
+                       
+                                   <div class="col-md-2">
+                                          <div class="form-group" > 
+    
+                                       <label for="">Devotee Name</label>  <input type="text" class="form-control" class="poojaname-control" formControlName="devotee_name">
+                                       <small [hidden]="myForm.controls.devotee_name.valid || (myForm.controls.devotee_name.pristine && !submitted)" class="text-danger">
+                                               Name is required (minimum 3 characters).
+                                       </small>
+                                                  
+                                          </div>
+
+                                         </div> 
+               
+                                    <div class="col-md-2">
+                                    <div class="form-group" >
+                                               <label for="">Devoteestar</label>
+                                               <select class="poojaname-control" formControlName="devotee_star" id="devotee_star">
+                                 
+                                               <option *ngFor="let star of stars" [value]="star">{{star}}</option>
+                                               </select>
+                                     </div>
+                                    </div>
+
+                                     <div class="col-md-1">
+                                     <div class="form-group" > 
+                                                <label>Rate</label>   <input type="number"formControlName="rate" class="qty-con">
+                                     </div>
+                                     </div>
+
+                                     <div class="col-md-2">
+                                     <div class="form-group" > 
+                        <label>Amount</label>   <input type="number"formControlName="amount" class="qty-con" >
+                                        </div>
+                                     </div>
+                                               <div class="col-md-1">
+                                                <span>
+                                                    <button type="button" class="btn btn-xs" (click)="addform()" data-type="plus" >
+                                                        <span class="glyphicon glyphicon-plus"></span>
+                                                    </button>
+                                                </span> 
+                                               </div>
+
+                                               <div class="col-md-2">
+                                                <div class="form-group" > 
+                                                <label>Total</label>   <input type="number"formControlName="total" class="qty-con" >
+                                        </div>
+                                               </div>
+
+                                       </div>
+                                     
+
+
+                                       
+
+
+
+
+
+
+
+
+   </form>
+
+</div>
+    
+    
+
+
+
+
+
+
+
+
+
+<ul >
+  <li *ngFor="let hero of heroes" >
+    
+  <pre>  <span>{{hero.devotee_name}}  {{hero.devotee_star}}     {{hero.pooja_name}}    {{hero.amount}} </span> 
+    
+    
+    </pre>
+  </li>
+</ul>
+
+<div class="submit-btn">
+<button type="button" class="btn btn-default"  [disabled]="!vazhipadForm.form.valid" (click)="postdata()">Submit</button>
+</div>    
+    
+    
+  
+                                       
+                                     
+
+
+
+
+<!--
+
+
+
+
+
+
+<div class="margin-20">
+      <div>myForm details:-</div>
+      <pre>Is myForm valid?: <br>{{myForm.valid | json}}</pre>
+      <pre>Is myForm submitted?: <br>{{submitted | json}}</pre>
+      <pre>myForm value: <br>{{myForm.value | json}}</pre>
+    </div>
+    <div class="margin-20">
+      Form changes:
+    </div>
+    <div *ngFor="let event of events" class="margin-20">
+      <pre> {{ event | json }} </pre>
+    </div>
+  
+
+
+<form [formGroup]="tcform" novalidate (ngSubmit)="onSubmit(tcform.value,tcform.valid)" #tranForm="ngForm">
+
+
+
+  <div class="form-group" >    <label>Quantity</label>     <input type="number" formControlName="quantity">
+              <small [hidden]="tcform.controls.quantity.valid || (tcform.controls.quantity.pristine && !submitted)" class="text-danger">
+                      Quantity is required (minimum 1 ).
+               </small>        </div>
+
+
+
+
+   <div class="form-group" > 
+                                <label>PoojaName</label>     <select class="poojaname-control" id="pooja_name" formControlName="pooja_name">
+                                            
+                                              <option *ngFor="let hero of vazhipads" [value]="hero.NAME">{{hero.NAME}}</option>
+                              </select>
+                               </div> 
+ 
+<div class="form-group" > 
+  <label>Devoteename</label>  <input type="text" formControlName="devotee_name"> <small [hidden]="tcform.controls.devotee_name.valid || (tcform.controls.quantity.pristine && !submitted)" class="text-danger">
+                      Devotee is required (minimum 3 Characters ).
+               </small> 
+</div>
+
+<div class="form-group" > 
+
+            <label>Devoteestar</label>    <select class="poojaname-control" formControlName="devotee_star" id="devotee_star">
+                                 
+                                       <option *ngFor="let star of stars" [value]="star">{{star}}</option>
+                                </select>
+</div>
+
+<div class="form-group" > 
+  <label>Rate</label>   <input type="number"formControlName="rate">
+</div>
+
+<div class="form-group" > 
+  <label>Amount</label>   <input type="number"formControlName="amount" >
+                          
+                                                <span>
+                                                    <button type="submit" class="btn btn-xs" (click)="addform()" data-type="plus" >
+                                                        <span class="glyphicon glyphicon-plus"></span>
+                                                    </button>
+                                                </span> 
+
+</div>
+
+
+ <ul >
+  <li *ngFor="let hero of heroes" >
+
+    <span>{{hero.devotee_name}}</span>
+    <span>{{hero.devotee_star}}</span>
+    <span>{{hero.pooja_name}}</span>
+    <span>{{hero.amount}}</span>
+    
+  </li>
+</ul>
+  <pre>Is myForm submitted?: <br>{{submitted | json}}</pre>
+  <pre>Is heroForm submitted?: <br>{{heroForm.form | json}}</pre>
+  
+  <button type="submit" class="btn btn-default" [disabled]="!tranForm.tcform.valid">Submit</button>
+
+</form>
+
+
+
+
+
+<p *ngIf="form.controls.devotee_name.errors">This field is required </p>
+
+
+
+
+
+
+
+<button type="submit" class="btn btn-default" [disabled]="!heroForm.form.valid">Submit</button>
+   <p *ngIf="form.controls.devotee_name.errors">This field is required </p>
 
 
 
@@ -63,7 +288,7 @@ Make a vazhipad
 
                     
                       <label for="amount">Amount</label>
-                      <input type="amount" class="qty-control" id="amount"
+                      <input type="number" class="qty-control" id="amount"
                             required
                             [(ngModel)]="model.rate*model.quantity" name="amount"
                             #name="ngModel" >
@@ -72,26 +297,40 @@ Make a vazhipad
 
 
                     
-                      <label for="party">Party</label>
-                      <input type="number" class="qty-control" id="party"
-                            required
-                            [(ngModel)]="model.party" name="party"
-                            #name="ngModel" >
         
       
           
          
                                                 <span>
-                                                    <button type="button" class="btn btn-xs" (click)="addform()" data-type="plus" >
+                                                    <button type="submit" class="btn btn-xs" (click)="addform(model)" data-type="plus" >
                                                         <span class="glyphicon glyphicon-plus"></span>
                                                     </button>
                                                 </span>
                   </div>
  </div>
 
+ 
+
+ <ul >
+  <li *ngFor="let hero of heroes" >
+    <span>{{hero.vazhipad_name}}</span>
+    <span>{{hero.amount}}</span>
+    
+  </li>
+</ul>
+
+
       <button type="submit" class="btn btn-default" [disabled]="!heroForm.form.valid">Submit</button>
          </form>
 </div>
+
+
+
+
+
+
+
+
 
 
   <div [hidden]="!submitted">
@@ -122,10 +361,7 @@ Make a vazhipad
       <div class="col-xs-3">amount</div>
       <div class="col-xs-9 pull-left">{{ model.amount }}</div>
     </div>
-     <div class="row">
-      <div class="col-xs-3">party</div>
-      <div class="col-xs-9 pull-left">{{ model.party }}</div>
-    </div>
+    
     <br>
     <button class="btn btn-default" (click)="postdata()">post</button>
     <button class="btn btn-default" (click)="submitted=false">Edit</button>
@@ -133,6 +369,15 @@ Make a vazhipad
   </div>
 </div>
  
-  
-       
+  -->
+
+
+
+
+
+
+
+
+
+
   
