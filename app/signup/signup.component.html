@@ -5,7 +5,79 @@
 <h3>signup here</h3>
 
 
-                   div class="container">
+
+      <!--     
+
+        <form #heroForm="ngForm">
+                             
+   
+                     <div [formGroup]="myGroup">    
+                         
+                         
+                         <label for="username">username</label>
+                    <input type="text" 
+                        formControlName="username" > 
+                      <div *ngIf="formErrors.username" class="alert alert-danger">
+                              {{ formErrors.username }}
+                         </div>
+
+                        
+                    <label for="password">Password</label>
+                    <input type="password" 
+                        formControlName="password" >
+
+                        
+                          <label for="Hint">Password Hint</label>
+                    <input type="text" 
+                        formControlName="hint"  >
+
+                    </div>
+
+
+
+            
+                       <input type="text" [formControl]="searchControl">
+               
+
+                    <label for="password">Password</label>
+                    <input type="text" 
+                        formControlName="password" >
+               
+
+
+
+
+
+
+
+
+
+       <button type="submit" class="btn btn-default" [disabled]="!heroForm.form.valid">Submit</button>
+
+
+    
+         
+      </form>
+
+
+
+-->
+
+
+
+
+
+    
+
+
+
+ 
+
+
+
+
+
+<div class="container">
   <h1>Add user</h1>
   <form [formGroup]="myForm" novalidate (ngSubmit)="save(myForm.value, myForm.valid)" #signForm="ngForm">
 
@@ -53,3 +125,4 @@
     </div>
   </form>
 </div>
+ 
