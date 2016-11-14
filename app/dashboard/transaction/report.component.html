@@ -1,0 +1,53 @@
+                        <h3>    Reports are here  </h3>
+
+<div class="container-fluid">
+
+    
+ <form [formGroup]="myForm" novalidate (ngSubmit)="save(myForm.value, myForm.valid)" #vazhipadForm="ngForm">
+              
+             <div class="row"> 
+
+                  <div class="col-md-2">
+                                          <div class="form-group" > 
+    
+                                               <label for="">Select Report type</label>
+                                               <select class="bookuser" formControlName="reporttype" id="reporttype">
+                                               <option *ngFor="let type of types" [value]="type">{{type}}</option>
+                                               </select>
+
+                                          </div> 
+                  </div>
+                 
+
+                          <div class="col-md-2">
+                                  <div class="form-group" >
+                                              <label for="">From</label>
+                                              <input type="date" class="form-control" formControlName="fromdate">
+                                  </div>
+                         </div>   
+
+                         <div class="col-md-2">
+                                  <div class="form-group" >
+                                              <label for="">To</label>
+                                              <input type="date" class="form-control" formControlName="todate">   
+                                  </div>
+                         </div>   
+
+
+                         
+             </div>
+
+                            
+
+                                 <button type="button" class="btn btn-default"(click)="makereport()">
+                                         <span class="glyphicon glyphicon-list-alt"></span> View
+                                 </button>
+
+  </form>
+
+
+ </div>
+
+             
+
+
